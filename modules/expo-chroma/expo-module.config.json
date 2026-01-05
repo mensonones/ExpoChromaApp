@@ -1,0 +1,10 @@
+{
+  "name": "expo-chroma",
+  "platforms": ["ios", "android", "web"],
+  "ios": {
+    "modules": ["ExpoChromaModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.chroma.ExpoChromaModule"]
+  }
+}
