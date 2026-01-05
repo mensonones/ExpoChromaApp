@@ -250,7 +250,7 @@ export default function HomeScreen() {
             disabled={isProcessing}
           >
             <View style={styles.benchCardHeader}>
-              <ThemedText style={styles.benchLabel}>JS (JSI)</ThemedText>
+              <ThemedText style={styles.benchLabel}>JS (Hermes)</ThemedText>
               <Ionicons name="logo-javascript" size={16} color="#f43f5e" />
             </View>
             <ThemedText style={styles.benchTime}>{jsTime ? `${jsTime.toFixed(0)}ms` : '--'}</ThemedText>
@@ -315,7 +315,7 @@ export default function HomeScreen() {
           <View style={styles.infoRow}>
             <View style={[styles.dot, { backgroundColor: '#f43f5e' }]} />
             <ThemedText style={styles.infoText}>
-              <ThemedText style={{ fontWeight: 'bold', color: '#f43f5e' }}>JS + Kotlin (JSI):</ThemedText> O JavaScript processa a lógica pixel a pixel. Embora a comunicação via JSI seja instantânea, o loop no JS ainda é sequencial e lento para grandes volumes de dados.
+              <ThemedText style={{ fontWeight: 'bold', color: '#f43f5e' }}>JS (Hermes):</ThemedText> O JavaScript processa a lógica pixel a pixel. Mesmo com o motor Hermes, o loop no JS é sequencial e limitado pela velocidade de execução da linguagem para grandes volumes de dados.
             </ThemedText>
           </View>
 
