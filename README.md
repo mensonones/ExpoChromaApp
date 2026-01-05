@@ -1,50 +1,49 @@
-# Welcome to your Expo app 👋
+# Expo Chroma SIMD 🚀
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este projeto demonstra como utilizar **C++** e instruções **SIMD (ARM NEON)** dentro do ecossistema **Expo** para processamento de imagem de alta performance, alcançando velocidades até 160x superiores ao JavaScript puro.
 
-## Get started
+> 📖 **Artigo detalhado no Dev.to:** [React Native em Alta Performance: Expo Modules, C++ e SIMD (ARM NEON)](https://dev.to/mensonones/react-native-em-alta-performance-expo-modules-c-e-simd-arm-neon-4bhg)
 
-1. Install dependencies
+## 🚀 Como rodar o projeto
 
+Como este projeto utiliza código nativo customizado (C++), você **não pode** usar o Expo Go. É necessário gerar um **Development Build**.
+
+### Pré-requisitos
+- Android SDK configurado (para Android)
+- Xcode (para iOS - opcional)
+- Node.js e Yarn/NPM
+
+### Passo a passo
+
+1. **Instale as dependências:**
    ```bash
-   npm install
+   yarn install
    ```
 
-2. Start the app
-
+2. **Rode no Android (Recomendado para ver o SIMD):**
    ```bash
-   npx expo start
+   yarn android
+   ```
+   *Este comando irá compilar o código C++ via CMake e instalar o app no seu dispositivo/emulador.*
+
+3. **Rode no iOS:**
+   ```bash
+   yarn ios
    ```
 
-In the output, you'll find options to open the app in a
+## 📂 Estrutura do Projeto
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- `modules/expo-chroma`: O coração do projeto. Contém o código C++ (SIMD), as pontes em Kotlin/Swift e a configuração do Expo Module.
+- `app/(tabs)/index.tsx`: Tela principal com os benchmarks de performance.
+- `cpp/`: Implementação dos kernels de processamento de imagem.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📊 Benchmarks
+O app inclui uma ferramenta de stress test que processa um buffer de 8MB para comparar:
+- **JS (Hermes)**
+- **C++ (Escalar)**
+- **C++ (SIMD/NEON)**
 
-## Get a fresh project
+---
+Criado por [mensonones](https://github.com/mensonones).
 
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+📖 **Leia o artigo completo:** [React Native em Alta Performance: Expo Modules, C++ e SIMD (ARM NEON)](https://dev.to/mensonones/react-native-em-alta-performance-expo-modules-c-e-simd-arm-neon-4bhg)
